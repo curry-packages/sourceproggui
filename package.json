@@ -1,0 +1,16 @@
+{
+    "name": "sourceproggui",
+    "version": "0.0.1",
+    "author": "Michael Hanus <mh@informatik.uni-kiel.de>",
+    "synopsis": "A simple GUI for highlighting functions in the source text of a Curry module.",
+    "category": [ "Programming" ],
+    "dependencies": { },
+    "executable": {
+        "name": "curry-showsource",
+        "main": "SourceProgGUI"
+    },
+    "source": {
+        "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/sourceproggui.git",
+        "tag": "$version"
+    }
+}
