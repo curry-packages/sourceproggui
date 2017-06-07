@@ -1,16 +1,24 @@
 ------------------------------------------------------------------------
 --- A simple GUI for highlighting functions in the source text
---- of a Curry module.
+--- of a Curry module. This GUI is used in the REPL of the
+--- Curry system KiCS2 and PAKCS to implement the command `source`.
 ---
---- To start: SourceProgGUI <module name>
---- Select highlighting by commands on stdin:
---- +fun          -> highlight function "fun"
---- -fun          -> remove highlighting for function "fun"
---- <empty line>  -> terminate GUI
---- q             -> terminate GUI
+--- In order to use this GUI, start it with the shell command
+---
+---     > curry-showsource <module name>
+---
+--- Select highlighting of operations in the specified module by writing
+--- the following commands on stdin:
+---
+---     +fun          -> highlight function "fun"
+---     -fun          -> remove highlighting for function "fun"
+---     <empty line>  -> terminate GUI
+---     q             -> terminate GUI
 ---
 --- @version October 2015
 ------------------------------------------------------------------------
+
+module SourceProgGUI where
 
 import IO
 import GUI
