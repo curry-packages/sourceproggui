@@ -4,7 +4,9 @@
     "author": "Michael Hanus <mh@informatik.uni-kiel.de>",
     "synopsis": "A simple GUI for highlighting functions in the source text of a Curry module.",
     "category": [ "Programming" ],
-    "dependencies": { },
+    "dependencies": {
+        "flatcurry": ">= 1.0.0"
+    },
     "compilerCompatibility": {
         "pakcs": ">= 1.14.0",
         "kics2": ">= 0.5.0"
