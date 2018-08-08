@@ -20,13 +20,13 @@
 
 module SourceProgGUI where
 
-import IO
+import System.Environment (getArgs)
+import System.IO
+import Data.List          (isPrefixOf)
+import Data.Char          (isAlpha,isSpace)
+import Distribution       (lookupModuleSourceInLoadPath)
+import FlatCurry.Show     (showCurryId)
 import GUI
-import FlatCurry.Show(showCurryId)
-import List(isPrefixOf)
-import Distribution(lookupModuleSourceInLoadPath)
-import System(getArgs)
-import Char(isAlpha,isSpace)
 
 ---------------------------------------------------------------------
 -- find a function declaration in a program text:
@@ -106,7 +106,7 @@ splitProgDefs ptxt =
 groupFuns :: [(String,Int)] -> [(String,(Int,Int))]
 groupFuns [] = []
 groupFuns [(f,i)] = [(f,(i,i))]
-groupFuns [(f1,i1),(f2,i2)] = 
+groupFuns [(f1,i1),(f2,i2)] =
   if f1==f2 then [(f1,(i1,i2))] else
   if null f2 then [(f1,(i1,i1))] else [(f1,(i1,i1)),(f2,(i2,i2))]
 groupFuns ((f1,i1):(f2,i2):(f3,i3):fis)
@@ -136,5 +136,5 @@ funDefOfLine l
 
 isCommentLine :: String -> Bool
 isCommentLine l = take 2 (dropWhile isSpace l) == "--"
-  
+
 ----------------------------------------------------------------------------
