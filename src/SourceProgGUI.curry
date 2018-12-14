@@ -15,18 +15,19 @@
 ---     <empty line>  -> terminate GUI
 ---     q             -> terminate GUI
 ---
---- @version October 2015
+--- @version December 2018
 ------------------------------------------------------------------------
 
 module SourceProgGUI where
 
 import IO
 import GUI
-import FlatCurry.Show(showCurryId)
-import List(isPrefixOf)
-import Distribution(lookupModuleSourceInLoadPath)
-import System(getArgs)
-import Char(isAlpha,isSpace)
+import FlatCurry.Show ( showCurryId )
+import List           ( isPrefixOf )
+import System         ( getArgs )
+import Char           ( isAlpha, isSpace )
+
+import System.CurryPath ( lookupModuleSourceInLoadPath )
 
 ---------------------------------------------------------------------
 -- find a function declaration in a program text:

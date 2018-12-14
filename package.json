@@ -5,12 +5,14 @@
   "synopsis": "A simple GUI for highlighting functions in the source text of a Curry module.",
   "category": [ "Programming" ],
   "dependencies": {
-    "flatcurry": " >= 1.0.0",
-    "gui": " >= 1.0.0"
+      "base"      : ">= 1.0.0, < 2.0.0",
+      "currypath" : ">= 0.0.1",
+      "flatcurry" : " >= 2.0.0",
+      "gui"       : " >= 2.0.0"
   },
   "compilerCompatibility": {
-    "pakcs": " >= 1.14.0",
-    "kics2": " >= 0.5.0"
+      "pakcs": ">= 2.0.0",
+      "kics2": ">= 2.0.0"
   },
   "source": {
     "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/sourceproggui.git",
