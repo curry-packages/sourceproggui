@@ -15,19 +15,19 @@
 ---     <empty line>  -> terminate GUI
 ---     q             -> terminate GUI
 ---
---- @version December 2018
+--- @version November 2020
 ------------------------------------------------------------------------
 
 module SourceProgGUI where
 
-import IO
-import GUI
-import FlatCurry.Show ( showCurryId )
-import List           ( isPrefixOf )
-import System         ( getArgs )
-import Char           ( isAlpha, isSpace )
+import Data.Char          ( isAlpha, isSpace )
+import Data.List          ( isPrefixOf )
+import System.Environment ( getArgs )
+import System.IO
 
-import System.CurryPath ( lookupModuleSourceInLoadPath )
+import FlatCurry.Show     ( showCurryId )
+import Graphics.UI
+import System.CurryPath   ( lookupModuleSourceInLoadPath )
 
 ---------------------------------------------------------------------
 -- find a function declaration in a program text:
@@ -62,7 +62,7 @@ sourceProgGUI cnt progdefs =
      inp <- hGetLine h
      if inp=="" || head inp == 'q'
       then exitGUI gp
-      else maybe done
+      else maybe (return ())
                  (\ (start,end) ->
                    if head inp == '+'
                    then do
@@ -72,7 +72,7 @@ sourceProgGUI cnt progdefs =
                    else do
                      removeRegionStyle ptxt (start,0) (end+1,0) (Bg Yellow) gp
                      setValue rinp "" gp
-                     extHandler h gp >> done
+                     extHandler h gp >> return ()
                  )
                 (lookup (tail inp) progdefs)
      return []
