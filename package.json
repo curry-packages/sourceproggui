@@ -12,10 +12,6 @@
       "flatcurry" : ">= 3.0.0, < 4.0.0",
       "gui"       : ">= 3.0.0, < 4.0.0"
   },
-  "compilerCompatibility": {
-      "pakcs":  ">= 3.0.0, < 4.0.0",
-      "kics2":  ">= 3.0.0, < 4.0.0"
-  },
   "source": {
     "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/sourceproggui.git",
     "tag": "$version"
