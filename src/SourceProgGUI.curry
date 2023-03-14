@@ -15,7 +15,7 @@
 ---     <empty line>  -> terminate GUI
 ---     q             -> terminate GUI
 ---
---- @version November 2020
+--- @version June 2021
 ------------------------------------------------------------------------
 
 module SourceProgGUI where
@@ -60,7 +60,7 @@ sourceProgGUI cnt progdefs =
    extHandler :: Handle -> GuiPort -> IO [ReconfigureItem]
    extHandler h gp = do
      inp <- hGetLine h
-     if inp=="" || head inp == 'q'
+     if null inp || head inp == 'q'
       then exitGUI gp
       else maybe (return ())
                  (\ (start,end) ->
@@ -82,10 +82,10 @@ startGUI :: String -> IO ()
 startGUI prog = do
   mbsrc <- lookupModuleSourceInLoadPath prog
   case mbsrc of
-    Nothing -> error $ "Curry file for module \""++prog++"\" not found!"
+    Nothing -> error $ "Curry file for module '" ++ prog ++ "' not found!"
     Just (_,filename) -> do
       contents <- readFile filename
-      runHandlesControlledGUI ("Module: "++filename)
+      runHandlesControlledGUI ("Module: " ++ filename)
                               (sourceProgGUI contents (splitProgDefs contents))
                               [stdin]
 
