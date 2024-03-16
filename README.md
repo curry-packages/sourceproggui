@@ -1,3 +1,6 @@
+sourceproggui
+=============
+
 A simple GUI for highlighting functions in the source text
 of a Curry module.
 
